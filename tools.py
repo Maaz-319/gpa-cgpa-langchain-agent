@@ -154,3 +154,5 @@ def save_report(filename: str, content: str) -> str:
         return f"Report saved successfully as {filename}"
     except Exception as e:
         return f"Error: could not save report — {e}"
+
+TOOLS = [save_report, get_remaining_credit_hours, get_semester_courses, required_gpa_for_target, calculate_new_cgpa, calculate_semester_gpa, marks_to_grade_points]
