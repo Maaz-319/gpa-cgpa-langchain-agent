@@ -1,5 +1,8 @@
 # CGPA Guider
 
+Github Repo: (https://github.com/Maaz-319/gpa-cgpa-langchain-agent/tree/assign_2)
+MCP Server URL: (https://bcsf24m007.fastmcp.app/mcp)
+
 ## Setup
 
 ```bash
