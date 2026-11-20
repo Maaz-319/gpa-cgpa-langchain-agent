@@ -3,11 +3,7 @@ from langchain.messages import HumanMessage
 from llm import llm
 from tools import *
 
-agent = create_agent(
-    model=llm,
-    tools=[marks_to_grade_points, calculate_semester_gpa, calculate_new_cgpa, required_gpa_for_target, get_semester_courses, get_remaining_credit_hours, save_report],
-    system_prompt=
-"""
+system_prompt = """
 You are a PUCIT BSCS assistant. You help students for GPA, CGPA, course credit hours, and calculation. Strictly follow the rules below, never answer anything unrelated than what is said below, say what you can do only.
 
 Rules
@@ -26,6 +22,11 @@ Usage Instruction
 3. Use the exact parameter names from the tool schema when calling a tool (e.g. target_cgpa, not target_gpa). Check the names before calling.
 4. Out of scope things: repeated or improved courses, curves or relative grading, incompletes, withdrawals, and anything about stored records. If user ask, say you do not handle it.
 """
+
+agent = create_agent(
+    model=llm,
+    tools=[marks_to_grade_points, calculate_semester_gpa, calculate_new_cgpa, required_gpa_for_target, get_semester_courses, get_remaining_credit_hours, save_report],
+    system_prompt=system_prompt
 )
 
 if __name__ == "__main__":
